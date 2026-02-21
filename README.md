@@ -1,0 +1,5 @@
+Steps to run
+1.Hit H2 endpoint :-http://localhost:8081/h2-console
+2.Change the url with url in log:-jdbc:h2:file:~/eazystore
+3.Once login, eexute achema.sql and data.sql in h2
+4.Hi the url to get the data:-http://localhost:8081/api/v1/products
