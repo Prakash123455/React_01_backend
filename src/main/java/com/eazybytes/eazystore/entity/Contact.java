@@ -1,6 +1,5 @@
 package com.eazybytes.eazystore.entity;
 
-import java.math.BigDecimal;
 import java.time.Instant;
 
 import org.hibernate.annotations.ColumnDefault;
@@ -13,41 +12,36 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "PRODUCTS")
-public class Product {
+@Table(name = "contacts")
+public class Contact {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "PRODUCT_ID", nullable = false)
+    @Column(name = "contact_id", nullable = false)
     private Long id;
 
-    @Column(name = "NAME", nullable = false, length = 250)
+    @Column(name = "name", nullable = false, length = 100)
     private String name;
 
-    @Column(name = "DESCRIPTION", nullable = false, length = 500)
-    private String description;
+    @Column(name = "email", nullable = false, length = 100)
+    private String email;
 
-    @Column(name = "PRICE", nullable = false, precision = 10, scale = 2)
-    private BigDecimal price;
+    @Column(name = "mobile_number", nullable = false, length = 15)
+    private String mobileNumber;
 
-    @Column(name = "POPULARITY", nullable = false)
-    private Integer popularity;
-
-    @Column(name = "IMAGE_URL", length = 500)
-    private String imageUrl;
+    @Column(name = "message", nullable = false, length = 500)
+    private String message;
 
     @ColumnDefault("CURRENT_TIMESTAMP")
-    @Column(name = "CREATED_AT", nullable = false)
+    @Column(name = "created_at", nullable = false)
     private Instant createdAt;
 
-    @Column(name = "CREATED_BY", nullable = false, length = 20)
+    @Column(name = "created_by", nullable = false, length = 20)
     private String createdBy;
 
-    @ColumnDefault("NULL")
-    @Column(name = "UPDATED_AT")
+    @Column(name = "updated_at")
     private Instant updatedAt;
 
-    @ColumnDefault("NULL")
-    @Column(name = "UPDATED_BY", length = 20)
+    @Column(name = "updated_by", length = 20)
     private String updatedBy;
 
 	public Long getId() {
@@ -66,36 +60,28 @@ public class Product {
 		this.name = name;
 	}
 
-	public String getDescription() {
-		return description;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public BigDecimal getPrice() {
-		return price;
+	public String getMobileNumber() {
+		return mobileNumber;
 	}
 
-	public void setPrice(BigDecimal price) {
-		this.price = price;
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
 	}
 
-	public Integer getPopularity() {
-		return popularity;
+	public String getMessage() {
+		return message;
 	}
 
-	public void setPopularity(Integer popularity) {
-		this.popularity = popularity;
-	}
-
-	public String getImageUrl() {
-		return imageUrl;
-	}
-
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 	public Instant getCreatedAt() {
